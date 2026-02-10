@@ -1,0 +1,157 @@
+/* 1. Page Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0f172a;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+/* 2. Glowing Background Effect */
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+    z-index: -2;
+}
+
+.sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.s1 { width: 400px; height: 400px; background: #7c3aed; top: 10%; left: 10%; }
+.s2 { width: 500px; height: 500px; background: #0ea5e9; bottom: 5%; right: 5%; }
+
+/* 3. Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 40px;
+    width: 90%;
+    max-width: 850px;
+    padding: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.card-header {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 4. Layout Logic */
+.main-layout {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 30px;
+    padding: 30px 0;
+}
+
+@media (min-width: 768px) {
+    .main-layout { flex-direction: row; align-items: flex-start; }
+    .profile-sidebar { flex: 1; border-right: 1px solid rgba(255, 255, 255, 0.1); padding-right: 20px; }
+    .details-area { flex: 1.5; padding-left: 10px; }
+}
+
+/* 5. Profile Picture & Sidebar */
+.image-container {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(45deg, #f0abfc, #38bdf8, #818cf8);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; /* This makes sure the photo doesn't stretch */
+    background: #000;
+}
+
+.user-name { font-size: 1.8rem; text-align: center; }
+.user-role { font-size: 0.9rem; color: #94a3b8; text-align: center; letter-spacing: 1px; margin-bottom: 20px; }
+
+.social-pills { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+.pill {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.contact-btn {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-btn:hover { transform: scale(1.05); background: #f0f2f5; }
+
+/* 6. Info Blocks */
+.info-block {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.info-block h3 { font-size: 0.8rem; color: #38bdf8; margin-bottom: 10px; }
+.info-block p { font-size: 0.9rem; line-height: 1.6; color: #cbd5e1; }
+
+.skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.skill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.stats-row { display: flex; gap: 15px; }
+.stat-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.num { font-size: 1.5rem; font-weight: bold; display: block; color: white; }
+.stat-item p { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; }
+
+.card-footer {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-top: 10px;
+}
